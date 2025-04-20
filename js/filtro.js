@@ -2,7 +2,7 @@ export function loadUsuario() {
   const content = document.getElementById("content");
   content.innerHTML = `
     <h2>Acerca del Proyecto</h2>
-    <p><strong>Nombre del Estudiante:</strong> Mikecito080</p>
+    <p><strong>Nombre del Estudiante:</strong> Maicol Stid Lopez Garcia</p>
     <p><strong>API utilizada:</strong> JokeAPI (<a href="https://jokeapi.dev/" target="_blank">jokeapi.dev</a>)</p>
     <p><strong>GitHub:</strong> <a href="https://github.com/Mikecito080" target="_blank">@Mikecito080</a></p>
     <p><strong>Versión:</strong> V.1.0.0</p>

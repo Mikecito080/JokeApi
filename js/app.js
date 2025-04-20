@@ -1,7 +1,10 @@
 import { loadSearch } from './search.js';
 import { loadFavorites } from './favoritos.js';
 import { loadUsuario } from './filtro.js';
+import { showMoodSelector } from './mood.js';  // Importa la función
 
+// Hacer funciones accesibles globalmente
+window.showMoodSelector = showMoodSelector;
 window.loadUsuario = loadUsuario;
 window.loadRandomJoke = loadRandomJoke;
 window.loadFavorites = loadFavorites;
@@ -32,7 +35,7 @@ export function loadRandomJoke() {
 
       content.innerHTML = jokeHTML;
 
-      // 🟩 Crear y agregar botón "Guardar en Favoritos"
+      // Botón "Guardar en Favoritos"
       const saveBtn = document.createElement("button");
       saveBtn.textContent = "Guardar en Favoritos";
       saveBtn.onclick = () => {
@@ -49,8 +52,13 @@ export function loadRandomJoke() {
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
         alert("Chiste guardado en favoritos 🎉");
       };
+      content.appendChild(saveBtn);
 
-      content.appendChild(saveBtn); // Mostrar botón debajo del chiste
+      // Botón "Otro chiste"
+      const nextBtn = document.createElement("button");
+      nextBtn.textContent = "Otro chiste 😂";
+      nextBtn.onclick = loadRandomJoke;
+      content.appendChild(nextBtn);
     })
     .catch(err => {
       console.error(err);
