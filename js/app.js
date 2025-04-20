@@ -1,7 +1,7 @@
-import { loadMenu } from './menu.js';  
+
+import { loadFilter, filterJokes } from './filtro.js';
 window.loadRandomJoke = loadRandomJoke;
 document.addEventListener("DOMContentLoaded", () => {
-   loadMenu();
     loadRandomJoke();  // Cargar chiste al inicio
   });
   
