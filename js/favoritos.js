@@ -1,30 +1,38 @@
-function saveFavorite(joke) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites.push(joke);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+export function loadFavorites() {
+  const content = document.getElementById("content");
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+  content.innerHTML = `<h2>Chistes Favoritos</h2>`;
+
+  if (favoritos.length === 0) {
+    content.innerHTML += `<p>No hay chistes favoritos aún.</p>`;
+    return;
   }
-  
-  function getFavorites() {
-    return JSON.parse(localStorage.getItem('favorites')) || [];
-  }
-  
-  function removeFavorite(jokeId) {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites = favorites.filter(joke => joke.id !== jokeId);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
-  
-  export function loadFavorites() {
-    const content = document.getElementById("content");
-    content.innerHTML = "<h2>Favoritos</h2>";
-    const favorites = getFavorites();
-    
-    if (favorites.length === 0) {
-      content.innerHTML += "<p>No tienes chistes favoritos.</p>";
+
+  favoritos.forEach((joke, index) => {
+    let jokeHTML = `<div class="joke-fav">`;
+
+    if (joke.type === "single") {
+      jokeHTML += `<p>${joke.joke}</p>`;
     } else {
-      favorites.forEach(fav => {
-        content.innerHTML += `<p>${fav.joke}</p><button onclick="removeFavorite(${fav.id})">Eliminar</button>`;
-      });
+      jokeHTML += `<p><strong>${joke.setup}</strong></p><p>${joke.delivery}</p>`;
     }
-  }
-  
+
+    // Botón para eliminar
+    jokeHTML += `<button onclick="removeFavorite(${index})">Eliminar</button>`;
+    jokeHTML += `</div>`;
+
+    content.innerHTML += jokeHTML;
+  });
+}
+
+// Eliminar favorito
+export function removeFavorite(index) {
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+  favoritos.splice(index, 1);
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  loadFavorites(); // Recargar la vista
+}
+
+// Hacer accesible la función desde el HTML
+window.removeFavorite = removeFavorite;
