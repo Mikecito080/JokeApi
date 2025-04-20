@@ -1,4 +1,4 @@
-function loadFilter() {
+export function loadFilter() {
     const content = document.getElementById("content");
     content.innerHTML = `
       <h2>Filtrar Chistes</h2>
@@ -11,7 +11,7 @@ function loadFilter() {
     `;
   }
   
-  function filterJokes() {
+  export function filterJokes() {
     const selectedFilter = document.getElementById("filterSelect").value;
     const resultsDiv = document.getElementById("filterResults");
     resultsDiv.innerHTML = `Filtrando por categoría: ${selectedFilter}`;

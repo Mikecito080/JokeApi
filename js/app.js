@@ -1,5 +1,7 @@
+import { loadMenu } from './menu.js';  
+window.loadRandomJoke = loadRandomJoke;
 document.addEventListener("DOMContentLoaded", () => {
-    loadMenu();    // Menú inferior
+   loadMenu();
     loadRandomJoke();  // Cargar chiste al inicio
   });
   
