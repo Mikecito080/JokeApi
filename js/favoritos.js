@@ -14,7 +14,7 @@ function saveFavorite(joke) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
   
-  function loadFavorites() {
+  export function loadFavorites() {
     const content = document.getElementById("content");
     content.innerHTML = "<h2>Favoritos</h2>";
     const favorites = getFavorites();

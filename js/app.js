@@ -1,6 +1,12 @@
 
-import { loadFilter, filterJokes } from './filtro.js';
+import { loadSearch } from './search.js';
+import { loadFavorites } from './favoritos.js';
+import { loadUsuario } from './filtro.js';
+
 window.loadRandomJoke = loadRandomJoke;
+window.loadFilter = loadUsuario;
+window.loadFavorites = loadFavorites;
+
 document.addEventListener("DOMContentLoaded", () => {
     loadRandomJoke();  // Cargar chiste al inicio
   });
@@ -32,8 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
   
-  
-  import { loadSearch } from "./search.js";
   
   // Asignamos las funciones al global window para que sean accesibles desde el HTML
   window.loadSearch = loadSearch;

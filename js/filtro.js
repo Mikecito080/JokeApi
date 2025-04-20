@@ -1,20 +1,14 @@
-export function loadFilter() {
-    const content = document.getElementById("content");
-    content.innerHTML = `
-      <h2>Filtrar Chistes</h2>
-      <select id="filterSelect">
-        <option value="programming">Programación</option>
-        <option value="misc">Diversos</option>
-      </select>
-      <button onclick="filterJokes()">Filtrar</button>
-      <div id="filterResults"></div>
-    `;
-  }
-  
-  export function filterJokes() {
-    const selectedFilter = document.getElementById("filterSelect").value;
-    const resultsDiv = document.getElementById("filterResults");
-    resultsDiv.innerHTML = `Filtrando por categoría: ${selectedFilter}`;
-    // Aquí agregarás la lógica para filtrar los chistes de la API
-  }
+export function loadUsuario() {
+  const content = document.getElementById("content");
+  content.innerHTML = `
+    <h2>Acerca del Proyecto</h2>
+    <p><strong>Nombre del Estudiante:</strong> Mikecito080</p>
+    <p><strong>API utilizada:</strong> JokeAPI (<a href="https://jokeapi.dev/" target="_blank">jokeapi.dev</a>)</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Mikecito080" target="_blank">@Mikecito080</a></p>
+    <p><strong>Versión:</strong> V.1.0.0</p>
+    <img src="https://i.imgur.com/ZPOeY3F.png" alt="Humor" style="max-width: 300px; margin-top: 10px;">
+    <p><strong>Descripción:</strong> Esta app permite visualizar chistes de todo tipo, categorizarlos, guardarlos como favoritos, y explorar contenido aleatorio de la JokeAPI.</p>
+  `;
+}
+
   
