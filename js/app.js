@@ -25,7 +25,10 @@ export function loadRandomJoke() {
   fetch("https://v2.jokeapi.dev/joke/Any?lang=es")
     .then(response => response.json())
     .then(data => {
-      let jokeHTML = `<h2>Chiste Aleatorio:</h2>`;
+      let jokeHTML = `
+        <div class="card">
+          <h2>Chiste Aleatorio:</h2>
+      `;
 
       if (data.type === "single") {
         jokeHTML += `<p>${data.joke}</p>`;
@@ -36,11 +39,16 @@ export function loadRandomJoke() {
         `;
       }
 
+      jokeHTML += `
+        <button>Guardar en Favoritos</button>
+        <button>Otro chiste 😂</button>
+        </div>
+      `;
+
       content.innerHTML = jokeHTML;
 
-      // Botón "Guardar en Favoritos"
-      const saveBtn = document.createElement("button");
-      saveBtn.textContent = "Guardar en Favoritos";
+      // Lógica para los botones dentro de la tarjeta
+      const saveBtn = content.querySelector("button:nth-of-type(1)");
       saveBtn.onclick = () => {
         const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
@@ -55,13 +63,9 @@ export function loadRandomJoke() {
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
         alert("Chiste guardado en favoritos 🎉");
       };
-      content.appendChild(saveBtn);
 
-      // Botón "Otro chiste"
-      const nextBtn = document.createElement("button");
-      nextBtn.textContent = "Otro chiste 😂";
+      const nextBtn = content.querySelector("button:nth-of-type(2)");
       nextBtn.onclick = loadRandomJoke;
-      content.appendChild(nextBtn);
     })
     .catch(err => {
       console.error(err);
