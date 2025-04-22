@@ -10,21 +10,22 @@ export function loadFavorites() {
   }
 
   favoritos.forEach((joke, index) => {
-    let jokeHTML = `<div class="joke-fav">`;
+    let jokeHTML = `<div class="joke-card2">`;  // Tarjeta para cada chiste
 
     if (joke.type === "single") {
-      jokeHTML += `<p>${joke.joke}</p>`;
+      jokeHTML += `<p class="joke-text">${joke.joke}</p>`;
     } else {
-      jokeHTML += `<p><strong>${joke.setup}</strong></p><p>${joke.delivery}</p>`;
+      jokeHTML += `<p class="joke-setup"><strong>${joke.setup}</strong></p><p class="joke-delivery">${joke.delivery}</p>`;
     }
 
     // Botón para eliminar
     jokeHTML += `<button onclick="removeFavorite(${index})">Eliminar</button>`;
-    jokeHTML += `</div>`;
+    jokeHTML += `</div>`;  // Cierra la tarjeta
 
     content.innerHTML += jokeHTML;
   });
 }
+
 
 // Eliminar favorito
 export function removeFavorite(index) {
