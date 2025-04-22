@@ -2,6 +2,8 @@ import { loadSearch } from './search.js';
 import { loadFavorites } from './favoritos.js';
 import { loadUsuario } from './filtro.js';
 import { showMoodSelector } from './mood.js';  // Importa la función
+import { setupBuscador } from './buscar.js';
+
 
 // Hacer funciones accesibles globalmente
 window.showMoodSelector = showMoodSelector;
@@ -12,6 +14,7 @@ window.loadSearch = loadSearch;
 
 document.addEventListener("DOMContentLoaded", () => {
   loadRandomJoke(); // Cargar chiste al inicio
+  setupBuscador();
 });
 
 // Función para cargar un chiste aleatorio

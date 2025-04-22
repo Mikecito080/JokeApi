@@ -35,3 +35,44 @@ button:hover {
   padding: 10px 0;
   border-top: 1px solid #ccc;
 }
+/* Barra de busqueda*/
+
+#header {
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.resultado-busqueda p {
+  margin: 5px 0;
+}
+
+
+#searchInput {
+  padding: 8px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#header button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#header button:hover {
+  background-color: #45a049;
+}
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}
