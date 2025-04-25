@@ -11,6 +11,15 @@
 <body>
   <header id="header">
     <input type="text" id="searchInput" placeholder="Buscar en la página...">
+    <div id="button">
+      <button onclick="loadRandomJoke()">Chistes</button>
+      <button onclick="loadSearch()">Categoria</button>
+      <button onclick="loadUsuario()">Usuario</button>
+      <button onclick="loadFavorites()">Favoritos</button>
+      <button onclick="showMoodSelector()">Animo</button>
+      <button onclick="mostrarChistesAleatorios()">Llamado a la API</button>
+
+    </div>
   </header>
   
   <div id="app">
@@ -34,5 +43,6 @@
   <script type="module" src="js/favoritos.js"></script>
   <script type="module" src="js/buscar.js"></script>
   <script type="module" src="js/app.js"></script>
+  <script type="module" src="listado.js"></script>
 </body>
 </html>
